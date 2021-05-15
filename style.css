@@ -3,7 +3,7 @@
     padding: 0%;
 }
 main{
-    background: url("bg.jpg") rgba(70, 69, 69, 0.4); 
+    background: url("imgs/bg.jpg") rgba(70, 69, 69, 0.4); 
     background-blend-mode: difference;
     min-height: 100vh;
     background-size: 100vw 100vh;
@@ -13,29 +13,28 @@ main{
 }
 #scoreBox{
     position: absolute;
-    top: 9px;
-    right: 10px;
-}
-#highscore{
-    position: absolute;
-    top: 20px;
-    right: 7px;
-}
+    font-size: 50px;
+    top: 12px;
+    right: 15px;
+} 
 .board{
-    background: url("bg.jpg");
+    background: url("imgs/bg.jpg");
     background-color: rgba(75, 97, 21, 0.58);
-    background-position: center;
+    background-position: left;
     background-blend-mode: darken;
     height: 90vmin;
     width: 95vmin;
-    border: 2px solid white;
+    border: 10px solid rgb(129, 165, 62);
+    border-radius: 5px;
+    border-style: dashed;
     display: grid;
     grid-template-columns: repeat(18,1fr);
     grid-template-rows: repeat(18,1fr);
 }
-.head{
+.head{ 
     background: linear-gradient(to top right,red,rgb(134,83,17));
-    border: 2px solid rgb(134, 83, 17);
+    border: 2px solid rgb(160, 142, 119);
+    border-radius: 7px;
 }
 .snake{
     background-color: rgb(134, 83, 17);

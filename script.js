@@ -1,12 +1,11 @@
 const direction={x: 0,y: 0};
-const foodsound=new Audio('');
-const gameoversound=new Audio('');
-const movesound=new Audio('audio.mp3');
-const musicsound=new Audio('');
+const foodsound=new Audio('music/food.mp3');
+const gameoversound=new Audio('music/gameover.mp3');
+const movesound=new Audio('music/move.mp3');
+const musicsound=new Audio('music/music.mp3');
 const board=document.querySelector('.board');
-let inputDir;
-let highScoreVal=0;
-let speed=10;
+let inputDir; 
+let speed=8;
 let score=0; 
 let lastPaintTime=0;
 let snakeArr=[
@@ -16,6 +15,7 @@ let food ={
     x:6, y:7
 };
 //game fn
+musicsound.play(); 
 function main(ctime){
     window.requestAnimationFrame(main);
     console.log('ctime');
@@ -49,18 +49,41 @@ function gameEngine(){
         snakeArr=[{x:13, y:15}];
         musicsound.play(); 
         score=0;
+        speed=8;
     }
 
     //if u ve eaten the food increment food and regenerate food
     if(snakeArr[0].y===food.y && snakeArr[0].x=== food.x){
         foodsound.play();
         score++;
-        if(score>highScoreVal){
-            highScoreVal=score;
-            localStorage.setItem("highScore",JSON.stringify(highScoreVal));
-            highscore.innerHTML="HighScore :"+ highScore;
+        if(score>1){
+            speed+=1;
         }
-        scoreBox.innerHTML= "Score :"+ score;
+        if(score>5){
+            speed+=0.4;
+        }
+        if(score>9){
+            speed+=0.4;
+        }
+        if(score>14){
+            speed+=0.4;
+        }
+        if(score>18){
+            speed+=0.4;
+        }
+        if(score>22){
+            speed+=0.4;
+        }
+        if(score>25){
+            speed+=0.4;
+        }
+        if(score>30){
+            speed+=0.4;
+        }
+        if(score>35){
+            speed+=0.7;
+        }
+        scoreBox.innerHTML= "Score : "+ score;
         snakeArr.unshift({x: snakeArr[0].x + inputDir.x, y: snakeArr[0].y+inputDir.y});
         let a=2;
         let b=16;
@@ -100,14 +123,6 @@ function gameEngine(){
 
 
 //logic
-let highScore= localStorage.getItem("highScore");
-if(highScore===null){
-    localStorage.setItem("highScore",JSON.stringify(highScoreVal));
-}
-else{
-    highScoreVal=JSON.parse(highScore);
-    highScore.innerHTML="HighScore :"+ highScore;
-}
 window.requestAnimationFrame(main);
 window.addEventListener('keydown',e =>{
     inputDir= {x:0,y:1}//start game
