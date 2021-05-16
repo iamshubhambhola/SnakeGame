@@ -48,7 +48,7 @@ main{
 .head{ 
     background-image: url("imgs/snakehead.png");
     background-position: center;
-    background-size: 40px; 
+    background-size: 43px; 
     background-repeat: no-repeat; 
 }
 .snake{ 
