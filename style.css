@@ -6,46 +6,59 @@ main{
     background: url("imgs/bg.jpg") rgba(70, 69, 69, 0.4); 
     background-blend-mode: difference;
     min-height: 100vh;
-    background-size: 100vw 100vh;
+    background-size: 104vw 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 #scoreBox{
     position: absolute;
-    font-size: 50px;
-    top: 12px;
-    right: 15px;
+    font-family: 'Reggae One', cursive;
+    font-size: 40px;
+    top: 16px;
+    right: 20px;
 } 
+#hiscoreBox{
+    position: absolute;
+    font-family: 'Reggae One', cursive;
+    font-size: 40px;
+    top: 60px;
+    right: 20px;
+}
 .board{
     background: url("imgs/bg.jpg");
-    background-color: rgba(75, 97, 21, 0.58);
+    background-color: rgba(50, 65, 11, 0.58);
     background-position: left;
     background-blend-mode: darken;
     height: 90vmin;
     width: 95vmin;
-    border: 10px solid rgb(129, 165, 62);
-    border-radius: 5px;
+    border: 10px solid rgb(117, 82, 16);
+    border-radius: 10px;
     border-style: dashed;
     display: grid;
     grid-template-columns: repeat(18,1fr);
     grid-template-rows: repeat(18,1fr);
 }
+.text{
+    font-family: 'Reggae One', cursive;
+    margin-left: 37vmin;
+    margin-top: 27vmin;
+    font-size: 43px;
+}
 .head{ 
-    background: linear-gradient(to top right,red,rgb(134,83,17));
-    border: 2px solid rgb(160, 142, 119);
-    border-radius: 7px;
+    background-image: url("imgs/snakehead.png");
+    background-position: center;
+    background-size: 40px; 
+    background-repeat: no-repeat; 
 }
-.snake{
-    background-color: rgb(134, 83, 17);
-    border: .25vmin solid white;
-    border-radius: 20px;
-}
-.body{
-    background-color: rgb(179, 73, 65);
+.snake{ 
+    background-color: rgb(177, 164, 93);
+    border: .35vmin solid rgb(231, 226, 205);
+    border-radius: 25px;
 }
 .food{
-    background-color: rgb(247, 199, 140);
-    border: .25vmin solid black;
-    border-radius: 15px;
+    background-image: url("imgs/food.png");
+    background-position: center;
+    background-size: 34px; 
+    background-repeat: no-repeat; 
 }

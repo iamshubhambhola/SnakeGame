@@ -14,8 +14,7 @@ let snakeArr=[
 let food ={
     x:6, y:7
 };
-//game fn
-musicsound.play(); 
+//game fn 
 function main(ctime){
     window.requestAnimationFrame(main);
     console.log('ctime');
@@ -49,6 +48,7 @@ function gameEngine(){
         snakeArr=[{x:13, y:15}];
         musicsound.play(); 
         score=0;
+        scoreBox.innerHTML= "Score : "+ score;
         speed=8;
     }
 
@@ -56,6 +56,11 @@ function gameEngine(){
     if(snakeArr[0].y===food.y && snakeArr[0].x=== food.x){
         foodsound.play();
         score++;
+        if(score>hiscoreval){
+            hiscoreval = score;
+            localStorage.setItem("hiscore", JSON.stringify(hiscoreval));
+            hiscoreBox.innerHTML = "High Score : " + hiscoreval;
+        }
         if(score>1){
             speed+=1;
         }
@@ -123,6 +128,17 @@ function gameEngine(){
 
 
 //logic
+musicsound.play();
+let hiscoreval;
+let hiscore = localStorage.getItem("hiscore");
+if(hiscore === null){
+    hiscoreval = 0;
+    localStorage.setItem("hiscore", JSON.stringify(hiscoreval))
+}
+else{
+    hiscoreval = JSON.parse(hiscore);
+    hiscoreBox.innerHTML = "High Score : " + hiscore;
+}
 window.requestAnimationFrame(main);
 window.addEventListener('keydown',e =>{
     inputDir= {x:0,y:1}//start game
@@ -131,7 +147,7 @@ window.addEventListener('keydown',e =>{
         case "ArrowUp":
             console.log("up");
             inputDir.x=0;
-            inputDir.y=-1;
+            inputDir.y=-1; 
             break;
 
         case "ArrowDown":
