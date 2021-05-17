@@ -4,8 +4,34 @@ const gameoversound=new Audio('music/gameover.mp3');
 const movesound=new Audio('music/move.mp3');
 const musicsound=new Audio('music/music.mp3');
 const board=document.querySelector('.board');
-let inputDir; 
-let speed=8;
+const easy=document.querySelector('#e');
+const med=document.querySelector('#m');
+const hard=document.querySelector('#h');
+const level=document.querySelector('.level');
+const text=document.querySelector('.text');
+const go=document.querySelector('.go');
+
+easy.addEventListener('click',speede);
+med.addEventListener('click',speedm);
+hard.addEventListener('click',speedh);
+
+let speed=7;
+function speede(){
+    speed=4;  
+    level.style.display="none";    
+    text.style.display="inline";
+}
+function speedm(){
+    speed=6.5;
+    level.style.display="none";
+    text.style.display="inline";
+}
+function speedh(){
+    speed=8;
+    level.style.display="none";
+    text.style.display="inline";
+}
+let inputDir;  
 let score=0; 
 let lastPaintTime=0;
 let snakeArr=[
@@ -44,12 +70,14 @@ function gameEngine(){
         gameoversound.play();
         musicsound.pause();
         inputDir={x:0,y:0};
+        //go.style.display="inline";
+        //go.style.zIndex="2";
         alert("Game Over. Press any key to play again!");
-        snakeArr=[{x:13, y:15}];
-        musicsound.play(); 
+        location.reload();
+        snakeArr=[
+            {x:13, y:15}
+        ];
         score=0;
-        scoreBox.innerHTML= "Score : "+ score;
-        speed=8;
     }
 
     //if u ve eaten the food increment food and regenerate food
